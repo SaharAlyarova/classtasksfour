@@ -1,0 +1,56 @@
+body{
+    margin: 0;
+    padding: 0;
+}
+
+
+.smallColorDiv{
+    background-color: orange;
+    width: 80px;
+    height: 4px;
+    // text-align: center;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+.avatar {
+  vertical-align: middle;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+.dataheader:hover{
+    color:#A5ADC3
+}
+.header{
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+}
+.navbar{
+   
+    nav{
+        ul{
+              display: flex;
+              column-gap: 25px;
+            li{
+                list-style: none;
+               
+            }
+        }
+    }
+}
+.footer{
+    background-color: black;
+}
+.formik{
+    color:red;
+    // background-color: black;
+    padding: 10px 5px ;
+    
+}
+.border-red{
+    border:2px solid red
+}
