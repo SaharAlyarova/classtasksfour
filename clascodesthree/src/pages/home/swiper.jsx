@@ -31,21 +31,33 @@ const SwiperSlider = () => {
           />
         </SwiperSlide>
         <SwiperSlide>
+        <h1 style={{ position: "absolute", zIndex: "1", color: "white" }}>
+            GET YOUR <span style={{backgroundColor:'orange'}}>EDICATION</span> TODAY
+          </h1>
           <img
             src="https://preview.colorlib.com/theme/course/images/slider_background.jpg"
             alt=""
+            style={{ position: "relative" }}
           />
         </SwiperSlide>
         <SwiperSlide>
+        <h1 style={{ position: "absolute", zIndex: "1", color: "white" }}>
+            GET YOUR <span style={{backgroundColor:'orange'}}>EDICATION</span> TODAY
+          </h1>
           <img
             src="https://preview.colorlib.com/theme/course/images/slider_background.jpg"
             alt=""
+            style={{ position: "relative" }}
           />
         </SwiperSlide>
         <SwiperSlide>
+        <h1 style={{ position: "absolute", zIndex: "1", color: "white" }}>
+            GET YOUR <span style={{backgroundColor:'orange'}}>EDICATION</span> TODAY
+          </h1>
           <img
             src="https://preview.colorlib.com/theme/course/images/slider_background.jpg"
             alt=""
+            style={{ position: "relative" }}
           />
         </SwiperSlide>
       </Swiper>

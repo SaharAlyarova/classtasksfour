@@ -7,7 +7,7 @@ const HeaderLay = () => {
         <img
           src="https://preview.colorlib.com/theme/course/images/logo.png"
           alt=""
-        />
+       style={{right:"35px"}} />
         <h2>COURSE</h2>
       </div>
       <div className="navbar">

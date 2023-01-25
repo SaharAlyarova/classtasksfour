@@ -2,6 +2,7 @@ import React from 'react'
  import { Formik, Form, Field } from "formik";
  import * as Yup from "yup";
 import axios from "axios"
+import { Helmet } from 'react-helmet';
  const SignupSchema = Yup.object().shape({
    imgurl: Yup.string()
      .min(2, "Too Short!")
@@ -34,6 +35,11 @@ const AddPage = () => {
 
   return (
     <div>
+        <Helmet>
+                <meta charSet="utf-8" />
+                <title>Add Page</title>
+                <link rel="canonical" href="http://mysite.com/example" />
+            </Helmet>
       <Formik
         initialValues={{
           imgurl: "",

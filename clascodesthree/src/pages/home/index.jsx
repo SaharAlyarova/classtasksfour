@@ -2,6 +2,10 @@ import React, { useEffect, useState } from "react";
 import "./index.scss"
 import axios from "axios"
 import SwiperSlider from "./swiper";
+import {Helmet} from "react-helmet"
+import { Link } from "react-router-dom";
+import DataAfterSection from "./dataafteronesection";
+import DataAfterSectionTwo from "./dataaftertwosection";
 const HomePage = () => {
   const [data, setData] = useState([]);
   const getData = async () => {
@@ -13,7 +17,7 @@ const HomePage = () => {
   }, [])
 
 const handleDelete= async(_id)=>{
-await axios.delete(`http://localhost:8080/coursesrow/${_id}`);
+await axios.delete(`http://localhost:8080/coursesrow/${_id}`).then(()=>axios.get`http://localhost:8080/coursesrow`).then((data)=>setData(data.data))
 }
 
 const handleSort=()=>{
@@ -24,8 +28,17 @@ const repeatsort = () => {
   const sortedData = data.sort((a, b) => (a.price < b.price ? 1 : -1));
   setData([...sortedData]);
 };
+const handleSearch=async(e)=>{
+const searchdata=axios.get("http://localhost:8080/coursesrow")
+setData([...(await searchdata).data.filter((el)=>el.name.toLowerCase().includes(e.target.value.toLowerCase()))])
+}
   return (
     <div>
+          <Helmet>
+                <meta charSet="utf-8" />
+                <title>Home Page</title>
+                <link rel="canonical" href="http://mysite.com/example" />
+            </Helmet>
       <div>
         <SwiperSlider />
       </div>
@@ -41,6 +54,7 @@ const repeatsort = () => {
 
         <div>
           <h1>Popular Courses</h1>
+          <input type="text" style={{color:'red', backgroundColor:'black', padding:'7px'}} placeholder="search name..." onChange={(e)=>{handleSearch(e)}}/>
           <button onClick={()=>{handleSort()}}>Sort</button>
           <button onClick={()=>{repeatsort()}}>Repead Sort</button>
         </div>
@@ -48,6 +62,7 @@ const repeatsort = () => {
           {data?.map((el) => {
             return (
               <div>
+                <Link to={`/${el._id}`}>
                 <div style={{ padding: "20px" }}>
                   <div>
                     <img
@@ -80,7 +95,7 @@ const repeatsort = () => {
                       {el?.price}$
                     </span>
                   </div>
-                </div>
+                </div></Link>
                 <button
                   onClick={() => {
                     handleDelete(el._id);
@@ -92,6 +107,12 @@ const repeatsort = () => {
             );
           })}
         </div>
+      </div>
+      <div>
+        <DataAfterSection/>
+      </div>
+      <div>
+        <DataAfterSectionTwo/>
       </div>
     </div>
   );

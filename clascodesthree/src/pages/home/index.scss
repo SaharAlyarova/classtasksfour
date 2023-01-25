@@ -54,3 +54,10 @@ body{
 .border-red{
     border:2px solid red
 }
+.header{
+    position: fixed;
+    top: 20px;
+    width: 98%;
+    z-index: 2;
+   right: 0.1px;
+}

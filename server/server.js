@@ -34,7 +34,7 @@ app.get("/coursesrow", (req, res) => {
 //get :id
 app.get("/coursesrow/:id", (req, res) => {
     const {id}=req.params
-  Courses.findById(id, (error, doc) => {
+  Courses.findById(id,(error, doc) => {
     if (!error) {
       res.send(doc);
     } else {
