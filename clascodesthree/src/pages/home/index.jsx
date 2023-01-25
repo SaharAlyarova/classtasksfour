@@ -20,6 +20,10 @@ const handleSort=()=>{
   const sortedData=data.sort((a,b)=>a.price>b.price ? 1 : -1)
   setData([...sortedData])
 }
+const repeatsort = () => {
+  const sortedData = data.sort((a, b) => (a.price < b.price ? 1 : -1));
+  setData([...sortedData]);
+};
   return (
     <div>
       <div>
@@ -38,6 +42,7 @@ const handleSort=()=>{
         <div>
           <h1>Popular Courses</h1>
           <button onClick={()=>{handleSort()}}>Sort</button>
+          <button onClick={()=>{repeatsort()}}>Repead Sort</button>
         </div>
         <div style={{ display: "flex" }}>
           {data?.map((el) => {
